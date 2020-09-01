@@ -10,12 +10,12 @@ git init
   
 git status  
 git add *  
-git ommit -m "커밋내용"  
+git commit -m "커밋내용"  
 
   
 git remote add 원격저장소별칭 "자신의 git 주소"  
 git pull --rebase 원격저장소별칭 master  
 git push 원격저장소별칭 master
 
-
+  
 
