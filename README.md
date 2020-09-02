@@ -6,6 +6,16 @@ android study
 # LiveData
 
 # ViewModel
+ViewModelProvider.of() was deprecated  
+- java   
+ if(viewModelFactory == null){
+            viewModelFactory = ViewModelProvider.AndroidViewModelFactory.getInstance(getApplication());
+        }
+        MainViewModel viewModel =  new ViewModelProvider(this,viewModelFactory).get(MainViewModel.class);  
+          
+ - kotlin  
+ 
+
 
 # Git
 
