@@ -1,12 +1,15 @@
 package lej.modern.room_java;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
 import androidx.room.Room;
 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,12 +28,19 @@ public class MainActivity extends AppCompatActivity {
                 .allowMainThreadQueries()
                 .build();
 
-        textView.setText(db.todoDao().getALL().toString());
+
+        //UI 갱신
+        db.todoDao().getALL().observe(this, todos -> {
+            textView.setText(todos.toString());
+        });
+
+
+        //버튼 클릭시 DB에 INSERT
         findViewById(R.id.add_btn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 db.todoDao().insert(new Todo(editText.getText().toString()));
-                textView.setText(db.todoDao().getALL().toString());
+
             }
         });
 

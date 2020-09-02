@@ -1,5 +1,6 @@
 package lej.modern.room_java;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -12,7 +13,7 @@ import java.util.List;
 public interface TodoDao {
 
     @Query("SELECT * FROM Todo")
-    List<Todo> getALL();
+    LiveData<List<Todo>> getALL();
 
     @Insert
     void insert(Todo todo);
