@@ -1,6 +1,14 @@
-# modern_android
+## modern_android with jetpack
 android study  
-  
+
+# Room
+
+# LiveData
+
+# ViewModel
+
+# Git
+
 git config --global user.email "이메일주소"  
 git config --global user.name "이름"  
 
