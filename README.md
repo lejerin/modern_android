@@ -15,7 +15,7 @@ ViewModelProvider.of() was deprecated
           
  - kotlin  
  
-
+  val viewModel: MainViewModel by viewModels()
 
 # Git
 
