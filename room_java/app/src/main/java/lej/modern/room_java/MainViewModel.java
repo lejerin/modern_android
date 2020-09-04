@@ -14,6 +14,8 @@ import java.util.List;
 public class MainViewModel extends AndroidViewModel {
 
     AppDatabase db;
+    public LiveData<List<Todo>> todos;
+    public String newTodo;
 
 
     public MainViewModel(@NonNull Application application) {
@@ -21,6 +23,7 @@ public class MainViewModel extends AndroidViewModel {
 
         db = Room.databaseBuilder(application, AppDatabase.class,"todo-db")
                 .build();
+        todos = getAll();
     }
 
 
@@ -28,9 +31,9 @@ public class MainViewModel extends AndroidViewModel {
         return db.todoDao().getALL();
     }
 
-    public void insert(Todo todo){
+    public void insert(String todo){
         new InsertAsyncTask(db.todoDao())
-                .execute(todo);
+                .execute(new Todo(todo));
     }
 
     private static class InsertAsyncTask extends AsyncTask<Todo, Void, Void> {
