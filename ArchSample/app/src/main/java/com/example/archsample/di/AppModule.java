@@ -13,8 +13,9 @@ import com.example.archsample.util.SingleLiveEvent;
 import dagger.Module;
 import dagger.Provides;
 
-//viewModelModule을 애플리케이션 범위로 관리하도록 AppModule에 포함한다.
-@Module(includes = ViewModelModule.class)
+@Module(includes = {
+        ViewModelModule.class
+})
 public class AppModule {
 
     @Provides

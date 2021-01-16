@@ -1,5 +1,7 @@
 package com.example.archsample;
 
+import com.example.archsample.di.DaggerAppComponent;
+
 import dagger.android.AndroidInjector;
 import dagger.android.DaggerApplication;
 import timber.log.Timber;
@@ -9,7 +11,7 @@ public class App extends DaggerApplication {
     @Override
     public void onCreate() {
         super.onCreate();
-
+        //로깅용 Timber 설정
         Timber.plant(new Timber.DebugTree());
     }
 
