@@ -11,8 +11,10 @@ import com.example.archsample.databinding.FragmentPostBinding;
 import com.example.archsample.di.ApplicationContext;
 import com.example.archsample.di.FragmentScope;
 
+import dagger.Module;
 import dagger.Provides;
 
+@Module
 public class PostModule {
 
     @Provides

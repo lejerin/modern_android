@@ -4,10 +4,12 @@ import com.example.archsample.data.CommentService;
 import com.example.archsample.data.PostService;
 import com.example.archsample.data.UserService;
 
+import dagger.Module;
 import dagger.Provides;
 import dagger.Reusable;
 import retrofit2.Retrofit;
 
+@Module
 public class RetrofitModule {
     @Provides
     @Reusable
