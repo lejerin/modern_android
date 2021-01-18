@@ -10,7 +10,12 @@ import com.example.archsample.di.ActivityScope;
 
 import dagger.Module;
 import dagger.Provides;
+import dagger.android.ContributesAndroidInjector;
+
 import com.example.archsample.databinding.ActivityMainBinding;
+import com.example.archsample.di.FragmentScope;
+import com.example.archsample.ui.post.PostFragment;
+import com.example.archsample.ui.post.PostModule;
 
 @Module
 public abstract class MainModule {
@@ -27,4 +32,9 @@ public abstract class MainModule {
         return activity;
     }
 
+
+    //서브 컴포넌트 정의
+    @FragmentScope
+    @ContributesAndroidInjector(modules = PostModule.class)
+    abstract PostFragment getPostFragment();
 }
