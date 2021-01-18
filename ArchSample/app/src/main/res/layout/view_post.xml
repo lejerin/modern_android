@@ -23,7 +23,8 @@
         app:cardUseCompatPadding="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" >
+        app:layout_constraintTop_toTopOf="parent"
+        android:onClick="@{v -> item.eventListener.onPostClick(item)}">
 
         <TextView
             android:id="@+id/title"
