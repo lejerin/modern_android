@@ -8,7 +8,7 @@
         <import type="android.view.View"/>
         <variable
             name="viewModel"
-            type="PostViewModel" />
+            type="com.example.archsample.ui.post.PostViewModel" />
     </data>
 
 <androidx.constraintlayout.widget.ConstraintLayout 
