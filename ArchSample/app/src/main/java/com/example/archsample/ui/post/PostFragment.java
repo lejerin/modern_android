@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.view.LayoutInflater;
@@ -18,6 +19,7 @@ import com.example.archsample.di.AppViewModelFactory;
 
 import javax.inject.Inject;
 
+import dagger.Lazy;
 import dagger.android.support.DaggerFragment;
 
 
@@ -31,6 +33,8 @@ public class PostFragment extends DaggerFragment {
     PostAdapter adapter;
     @Inject
     LinearLayoutManager layoutManager;
+    @Inject
+    Lazy<NavController> navController;
 
     PostViewModel viewModel;
 
@@ -67,5 +71,11 @@ public class PostFragment extends DaggerFragment {
         //viewModel이 가진 게시 글 목록을 구독하여 Adapter에 반영
         viewModel.getLivePosts()
                 .observe(getViewLifecycleOwner(), list -> adapter.setItems(list));
+
+        //게시글이 클릭 되었을 때 게시글 상세 화면 목적지로 이동
+        viewModel.getPostClickEvent()
+                .observe(getViewLifecycleOwner(), postItem ->
+                        navController.get().navigate(PostFragmentDirections
+                                .actionPostFragmentToPostDetailFragment(postItem.getPost())));
     }
 }

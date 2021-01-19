@@ -4,6 +4,8 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -13,6 +15,7 @@ import com.example.archsample.di.FragmentScope;
 
 import dagger.Module;
 import dagger.Provides;
+import retrofit2.http.POST;
 
 @Module
 public class PostModule {
@@ -34,6 +37,12 @@ public class PostModule {
                         ViewGroup.LayoutParams.WRAP_CONTENT);
             }
         };
+    }
+
+    @Provides
+    @FragmentScope
+    NavController provideNavController(PostFragment fragment){
+        return NavHostFragment.findNavController(fragment);
     }
 
 }
