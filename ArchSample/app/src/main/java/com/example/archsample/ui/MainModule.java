@@ -18,6 +18,8 @@ import com.example.archsample.ui.detail.PostDetailFragment;
 import com.example.archsample.ui.detail.PostDetailModule;
 import com.example.archsample.ui.post.PostFragment;
 import com.example.archsample.ui.post.PostModule;
+import com.example.archsample.ui.user.UserFragment;
+import com.example.archsample.ui.user.UserModule;
 
 @Module
 public abstract class MainModule {
@@ -43,4 +45,8 @@ public abstract class MainModule {
     @FragmentScope
     @ContributesAndroidInjector(modules = PostDetailModule.class)
     abstract PostDetailFragment getPostDetailFragment();
+
+    @FragmentScope
+    @ContributesAndroidInjector(modules = UserModule.class)
+    abstract UserFragment getUserFragment();
 }
