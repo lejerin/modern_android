@@ -14,6 +14,8 @@ import dagger.android.ContributesAndroidInjector;
 
 import com.example.archsample.databinding.ActivityMainBinding;
 import com.example.archsample.di.FragmentScope;
+import com.example.archsample.ui.detail.PostDetailFragment;
+import com.example.archsample.ui.detail.PostDetailModule;
 import com.example.archsample.ui.post.PostFragment;
 import com.example.archsample.ui.post.PostModule;
 
@@ -37,4 +39,8 @@ public abstract class MainModule {
     @FragmentScope
     @ContributesAndroidInjector(modules = PostModule.class)
     abstract PostFragment getPostFragment();
+
+    @FragmentScope
+    @ContributesAndroidInjector(modules = PostDetailModule.class)
+    abstract PostDetailFragment getPostDetailFragment();
 }

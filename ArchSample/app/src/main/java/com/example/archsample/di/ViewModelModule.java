@@ -3,6 +3,7 @@ package com.example.archsample.di;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.archsample.ui.detail.PostDetailViewModel;
 import com.example.archsample.ui.post.PostViewModel;
 
 import dagger.Binds;
@@ -22,5 +23,10 @@ public abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(PostViewModel.class)
     abstract ViewModel bindsPostViewModel(PostViewModel postViewModel);
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(PostDetailViewModel.class)
+    abstract ViewModel bindsPostDetailViewModel(PostDetailViewModel postDetailViewModel);
 
 }
