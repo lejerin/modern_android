@@ -3,9 +3,10 @@ package com.example.archsample.ui.detail;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
-import androidx.databinding.library.baseAdapters.BR;
 import androidx.recyclerview.widget.RecyclerView;
 
+
+import com.example.archsample.BR;
 import com.example.archsample.R;
 import com.example.archsample.util.ViewBindingHolder;
 
@@ -19,7 +20,7 @@ public class PostDetailAdapter extends RecyclerView.Adapter<ViewBindingHolder> {
     private final List<PostDetailItem> items = new ArrayList<>();
 
     @Inject
-    public PostDetailAdapter(){
+    public PostDetailAdapter() {
     }
 
     @Override
@@ -31,8 +32,9 @@ public class PostDetailAdapter extends RecyclerView.Adapter<ViewBindingHolder> {
                 return R.layout.view_post_detail_post;
             case COMMENT:
                 return R.layout.view_post_detail_comment;
-            default:
+            default :
                 throw new IllegalArgumentException();
+
         }
     }
 
@@ -53,7 +55,7 @@ public class PostDetailAdapter extends RecyclerView.Adapter<ViewBindingHolder> {
         return items.size();
     }
 
-    public void setItems(List<PostDetailItem> items){
+    public void setItems(List<PostDetailItem> items) {
         this.items.clear();
         this.items.addAll(items);
         this.notifyDataSetChanged();

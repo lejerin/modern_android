@@ -1,13 +1,12 @@
 package com.example.archsample.ui.detail;
 
+
 import com.example.archsample.data.entity.Comment;
-import com.example.archsample.data.entity.Post;
 
-public class PostDetailCommentItem extends  PostDetailItem{
-
+public class PostDetailCommentItem extends PostDetailItem {
     private Comment comment;
 
-    public PostDetailCommentItem(Comment comment){
+    public PostDetailCommentItem(Comment comment) {
         this.comment = comment;
     }
 
@@ -16,13 +15,12 @@ public class PostDetailCommentItem extends  PostDetailItem{
         return Type.COMMENT;
     }
 
-    public String getName(){
+    public String getName() {
         return comment.getName();
     }
 
-    public String getBody(){
+    public String getBody() {
         return comment.getBody();
     }
-
 
 }

@@ -3,6 +3,7 @@ package com.example.archsample.di;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
+
 import com.example.archsample.ui.detail.PostDetailViewModel;
 import com.example.archsample.ui.post.PostViewModel;
 import com.example.archsample.ui.user.UserViewModel;
@@ -18,21 +19,19 @@ public abstract class ViewModelModule {
     @Binds
     abstract ViewModelProvider.Factory bindViewModelFactory(AppViewModelFactory factory);
 
-
-    //오브젝트 그래프에 멀티 바인딩 하도록
     @Binds
     @IntoMap
     @ViewModelKey(PostViewModel.class)
-    abstract ViewModel bindsPostViewModel(PostViewModel postViewModel);
+    abstract ViewModel bindsPostViewModel(PostViewModel viewModel);
 
     @Binds
     @IntoMap
     @ViewModelKey(PostDetailViewModel.class)
-    abstract ViewModel bindsPostDetailViewModel(PostDetailViewModel postDetailViewModel);
+    abstract ViewModel bindsPostDetailViewModel(PostDetailViewModel viewModel);
 
     @Binds
     @IntoMap
     @ViewModelKey(UserViewModel.class)
-    abstract ViewModel bindsUserViewModel(UserViewModel userViewModel);
+    abstract ViewModel bindsUserViewModel(UserViewModel viewModel);
 
 }

@@ -1,15 +1,13 @@
 package com.example.archsample.ui.detail;
 
+
 import com.example.archsample.data.entity.User;
 
-import java.util.EventListener;
-
-public class PostDetailUserItem extends  PostDetailItem{
-
+public class PostDetailUserItem extends PostDetailItem {
     private User user;
     private EventListener eventListener;
 
-    public PostDetailUserItem(User user, EventListener eventListener){
+    public PostDetailUserItem(User user, EventListener eventListener) {
         this.user = user;
         this.eventListener = eventListener;
     }
@@ -19,19 +17,19 @@ public class PostDetailUserItem extends  PostDetailItem{
         return Type.USER;
     }
 
-    public String getName(){
+    public String getName() {
         return user.getName();
     }
 
-    public long getUserId(){
+    public long getUserId() {
         return user.getId();
     }
 
-    public EventListener getEventListener(){
+    public EventListener getEventListener() {
         return eventListener;
     }
 
-    public interface EventListener{
+    public interface EventListener {
         void onUserClick(long userId);
     }
 }

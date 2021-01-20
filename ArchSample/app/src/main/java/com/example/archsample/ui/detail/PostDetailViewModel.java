@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
 
+
 import com.example.archsample.data.CommentService;
 import com.example.archsample.data.UserService;
 import com.example.archsample.data.entity.Comment;
@@ -24,37 +25,37 @@ import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 import timber.log.Timber;
 
-public class PostDetailViewModel extends AndroidViewModel
-                                implements PostDetailUserItem.EventListener{
+public class PostDetailViewModel
+        extends AndroidViewModel
+        implements PostDetailUserItem.EventListener{
 
 
     private final MutableLiveData<List<PostDetailItem>> liveItems = new MutableLiveData<>();
     private final UserService userService;
     private final CommentService commentService;
-
     @NonNull
     private final SingleLiveEvent<Throwable> errorEvent;
     private final CompositeDisposable compositeDisposable = new CompositeDisposable();
 
     private final MutableLiveData<Boolean> loading = new MutableLiveData<>(true);
+
     private final SingleLiveEvent<Long> userClickEvent = new SingleLiveEvent<>();
 
     @Inject
     public PostDetailViewModel(@NonNull Application application,
                                UserService userService,
                                CommentService commentService,
-                               @Named("errorEvent")
-                               SingleLiveEvent<Throwable> errorEvent) {
+                               @Named("errorEvent") SingleLiveEvent<Throwable> errorEvent) {
         super(application);
         Timber.d("PostDetailViewModel created");
         this.userService = userService;
         this.commentService = commentService;
         this.errorEvent = errorEvent;
+
     }
 
     public void load(Post post) {
-        compositeDisposable.add(
-                Single.zip(userService.getUser(post.getUserId()),
+        compositeDisposable.add(Single.zip(userService.getUser(post.getUserId()),
                 Single.just(post),
                 commentService.getComments(post.getId()),
                 (user, p, comments) -> {
